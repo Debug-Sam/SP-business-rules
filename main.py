@@ -72,7 +72,7 @@ content.create_table(target='Extra Deals', type='category')
 content.create_table(target='Opruiming', type='category')
 content.create_table(target='onbekend', type='category')
 
-content.create_table(target='8x4', type='brand')
+
 
 
 
