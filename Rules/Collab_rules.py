@@ -16,8 +16,10 @@ def getPopularID(df):
     result = df['products'].squeeze()
 
     for i in result:
-        print(i)
-        if i[0]['id'] not in idDict.keys():
+        if not i:
+            print("List is empty")
+            continue
+        elif i[0]['id'] not in idDict.keys():
             idDict[i[0]['id']] = 1
         else:
             idDict[i[0]['id']] += 1
