@@ -55,4 +55,24 @@ Also give the name of the file u want to create.
 # data_sender.copy_sessions_csv(pathname=absolutepath + "\sessions.csv")
 
 content = ContentRules()
-print(content.get_data_catagory(category='Wonen & vrije tijd'))
+content.create_table(target='Gezond & verzorging', type='category')
+content.create_table(target='Huishouden', type='category')
+content.create_table(target='Elektronica & media', type='category')
+content.create_table(target='Eten & drinken', type='category')
+content.create_table(target='Make-up & geuren', type='category')
+content.create_table(target='Baby & kind', type='category')
+content.create_table(target='50% korting', type='category')
+content.create_table(target='Nieuw', type='category')
+content.create_table(target='Kleding & sieraden', type='category')
+content.create_table(target='op=opruiming', type='category')
+content.create_table(target='Cadeau ideeën', type='category')
+content.create_table(target='Folder artikelen', type='category')
+content.create_table(target='Black Friday', type='category')
+content.create_table(target='Extra Deals', type='category')
+content.create_table(target='Opruiming', type='category')
+content.create_table(target='onbekend', type='category')
+
+content.create_table(target='8x4', type='brand')
+
+
+

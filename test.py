@@ -1,30 +1,26 @@
-lst = [1, 0, 4, 1]
+import pandas as pd
+from sqlalchemy import create_engine
+from _functions.config import config
 
-def my_sort(lst):
+db = config()
 
-    k = max(lst)
+# choose the database to use
+port = 5432
 
-    lst2 = []
-    for i in range(0, k+1):
-            lst2.append((i,0))
-    print(lst2)
-    freqs = dict()
-    for i in lst:
-        freqs[i] = lst.count(i)
+# construct an engine connection string
+engine_string = "postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}".format(
+    user = db['user'],
+    password = db['password'],
+    host = db['host'],
+    port = 5432,
+    database = db['database'],
+)
 
-    lst3 = []
-    for i in lst2:
-        key = i[0]
-        if freqs.get(key) != None:
-            lst3.append((key, freqs.get(key)))
-    print(lst3)
-    final_lst = []
-    for key, value in lst3:
-        while value != 0:
-            final_lst.append(key)
-            value += -1
+# create sqlalchemy engine
+engine = create_engine(engine_string)
 
-    return final_lst
+# read a table from database into pandas dataframe, replace "tablename" with your table name
+column_names = ['idproducts', 'name', 'brand', 'category']
+df = pd.read_sql_table(table_name='products', con=engine, columns=column_names)
 
-print(my_sort(lst))
-
+print(df)
